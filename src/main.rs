@@ -14,7 +14,14 @@ fn start() {
         
 fn main() {
     App::new()
-    .add_plugins(DefaultPlugins)
+    .add_plugins(DefaultPlugins.set(WindowPlugin {
+        primary_window: Some(Window {
+            title: String::from("my window"),
+            decorations: false,
+            ..default()
+        }),
+        ..default()
+    }))
     .add_plugins(HelloPlugin)
     .run();
 }
