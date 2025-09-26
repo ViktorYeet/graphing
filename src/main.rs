@@ -61,7 +61,7 @@ fn setup(
     
     commands.spawn((
         Mesh2d(meshes.add(Circle::new(50.0))),
-        MeshMaterial2d(materials.add(Color::hsl(0.0, 1.0, 0.5))),
+        MeshMaterial2d(materials.add(Color::hsl(60.0, 1.0, 0.5))),
         Transform::from_xyz(200.0, 0.0, 0.0),
     ));
 }
