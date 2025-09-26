@@ -33,7 +33,11 @@ fn main() {
 #[derive(Component)]
 struct AnimatedText;
 
-fn setup(mut commands: Commands) {
+fn setup(
+    mut commands: Commands,
+    mut meshes: ResMut<Assets<Mesh>>,
+    mut materials: ResMut<Assets<ColorMaterial>>,
+) {
     commands.spawn(Camera2d);
 
     commands.spawn((
@@ -53,6 +57,12 @@ fn setup(mut commands: Commands) {
             ..default()
         },
         AnimatedText,
+    ));
+    
+    commands.spawn((
+        Mesh2d(meshes.add(Circle::new(50.0))),
+        MeshMaterial2d(materials.add(Color::hsl(0.0, 1.0, 0.5))),
+        Transform::from_xyz(200.0, 0.0, 0.0),
     ));
 }
 
